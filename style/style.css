@@ -1,0 +1,125 @@
+/* $accentColor = #3eaf7c // 主题色 */
+#app .navbar{background-color: #111111;border-color:#184e94;box-shadow:0px 1px 4px 0px rgba(42, 93, 168, 0.078)}
+#app .navbar .home-link span,#app .navbar .links .nav-links .nav-item  span a {color: #ffffff;}
+#app .navbar .links .nav-links .nav-item  span  {color: #ffffff;}
+#app .navbar .links .nav-links .nav-item  .dropdown-item   {color: #111111;}
+#app .navbar .nav-links  a:hover, #app .navbar .nav-links a.router-link-active {
+     color: #3eaf7c;
+}
+#app .navbar  .links {
+    padding-left: 1.5rem;
+    box-sizing: border-box;
+     background-color: #111111;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    color: white;
+    position: absolute;
+    right: 1.5rem;
+    top: 0.7rem;
+    display: -webkit-box;
+    display: flex;
+}
+
+#app .navbar .home-link span{
+    padding-left:10px;
+    display: inline-block;
+}
+
+#app .navbar .home-link span:before{
+    display: inline-block;
+    content:'';
+    width: 3rem;
+    height:2.4rem;
+    background:url('../images/summergao-books.png') no-repeat;
+    background-size:100% 100%;
+    vertical-align: middle;
+}
+#app .search-box input{background-color: #fff;color: #111111;}
+#app .search-box input:focus{border-color: #fff;}
+
+
+#app .sidebar{
+    background-color: rgba(247,250,254,0.3);
+    box-shadow: 2px 0 6px 0 rgba(42, 93, 168, 0.2);
+}
+@media screen and (max-width:720px){
+    #app .sidebar{
+        background-color: rgba(247,250,254,1);
+    }
+}
+#app .custom-page-class{
+    height:100%;
+    background: #fff url('../images/bg1.jpg');
+    background-size: 100% 100%;
+}
+#app .custom-page-class:after{
+    content: "";
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background: inherit;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    z-index: 2;
+}
+/*#app .home{*/
+/*     position: absolute;*/
+/*     left:50%;*/
+/*     top:50%;*/
+/*     transform: translate(-50%,-50%);*/
+/*     text-align: center;*/
+/*     z-index:11;*/
+/* }*/
+#app .home .hero .description{color:#ddd;}
+#app .theme-container{
+    height:100%;
+}
+#app .theme-container .page{
+    height: 100%;
+    overflow: auto;
+    background:#f7fafe;
+}
+#app  .content:not(.custom) {
+    max-width: 100%;
+    padding:2rem 6rem;
+}
+
+/* 左侧导航 */
+#app .sidebar-group{
+    background: #e4eef04f;
+}
+#app .sidebar-group-items{
+    background: #f7fafe;
+}
+#app .sidebar-group-items li{
+   border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+}
+#app .sidebar a{
+    color:#2c3e50ad;
+}
+#app .sidebar-group a.sidebar-link{
+    padding-left:1.5rem;
+}
+#app .sidebar-heading{
+    margin-bottom:0;
+}
+#app .sidebar-heading .arrow {
+    position: relative;
+    top: 0.5em;
+    left: -1.2em;
+    float: right;
+    border-width: 6px;
+}
+
+#app a.sidebar-link.active {
+    font-weight: 600;
+    color: #3eaf7c;
+    border-left-color: #3eaf7c;
+}
+
+/*修改v-dialog-toast出现滚动条问题*/
+div.v-dialog-toast div.v-dialog-body {
+    overflow: hidden !important;
+}

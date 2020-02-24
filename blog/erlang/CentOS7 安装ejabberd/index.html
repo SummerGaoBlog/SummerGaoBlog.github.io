@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CentOS7 安装ejabberd | SummerGao Blog</title>
+    <meta name="description" content="勤学●敏思●笃行">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style/style.css">
+    
+    <link rel="preload" href="/assets/css/0.styles.568f812a.css" as="style"><link rel="preload" href="/assets/js/app.6b660d26.js" as="script"><link rel="preload" href="/assets/js/2.a18e6c2d.js" as="script"><link rel="preload" href="/assets/js/14.eb89639f.js" as="script"><link rel="prefetch" href="/assets/js/10.84b29f5a.js"><link rel="prefetch" href="/assets/js/11.983b8cd1.js"><link rel="prefetch" href="/assets/js/12.3855fe18.js"><link rel="prefetch" href="/assets/js/13.a018384e.js"><link rel="prefetch" href="/assets/js/15.dc82930b.js"><link rel="prefetch" href="/assets/js/16.b645d919.js"><link rel="prefetch" href="/assets/js/17.063cbd71.js"><link rel="prefetch" href="/assets/js/18.a2c02a42.js"><link rel="prefetch" href="/assets/js/19.b5ee62a0.js"><link rel="prefetch" href="/assets/js/20.1e4a7cb8.js"><link rel="prefetch" href="/assets/js/21.4859697a.js"><link rel="prefetch" href="/assets/js/22.8314ee28.js"><link rel="prefetch" href="/assets/js/23.09adfe07.js"><link rel="prefetch" href="/assets/js/24.0aafdf4a.js"><link rel="prefetch" href="/assets/js/25.29c8c764.js"><link rel="prefetch" href="/assets/js/26.87a30f72.js"><link rel="prefetch" href="/assets/js/27.de0250f2.js"><link rel="prefetch" href="/assets/js/3.605fba3d.js"><link rel="prefetch" href="/assets/js/4.1f0d44e9.js"><link rel="prefetch" href="/assets/js/5.c55a9455.js"><link rel="prefetch" href="/assets/js/6.a5c34c83.js"><link rel="prefetch" href="/assets/js/7.68e242dd.js"><link rel="prefetch" href="/assets/js/8.5c98f2a1.js"><link rel="prefetch" href="/assets/js/9.f46348be.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.568f812a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">SummerGao Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/markdown/" class="nav-link">
+  《Markdown Guide》
+</a></li><li class="dropdown-item"><!----> <a href="/guide/chicagoboss/tutorial/" class="nav-link">
+  《Chicago Boss: A Rough Introduction》
+</a></li><li class="dropdown-item"><!----> <a href="/guide/cowboy/2.6/" class="nav-link">
+  《Cowboy 2.6 User Guide》
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/erlang/" class="nav-link router-link-active">
+  Erlang
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/blog/quotes/" class="nav-link">
+  Quotes
+</a></li><li class="dropdown-item"><!----> <a href="/blog/centos/" class="nav-link">
+  CentOS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/" class="nav-link">
+  Tools
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese.html" class="nav-link">
+  Chinese
+</a></li><li class="dropdown-item"><!----> <a href="/language/english.html" class="nav-link">
+  English
+</a></li></ul></div></div><div class="nav-item"><a href="http://www.summergao.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/SummerGaoBlog/summergao-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/markdown/" class="nav-link">
+  《Markdown Guide》
+</a></li><li class="dropdown-item"><!----> <a href="/guide/chicagoboss/tutorial/" class="nav-link">
+  《Chicago Boss: A Rough Introduction》
+</a></li><li class="dropdown-item"><!----> <a href="/guide/cowboy/2.6/" class="nav-link">
+  《Cowboy 2.6 User Guide》
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/erlang/" class="nav-link router-link-active">
+  Erlang
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/blog/quotes/" class="nav-link">
+  Quotes
+</a></li><li class="dropdown-item"><!----> <a href="/blog/centos/" class="nav-link">
+  CentOS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/" class="nav-link">
+  Tools
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese.html" class="nav-link">
+  Chinese
+</a></li><li class="dropdown-item"><!----> <a href="/language/english.html" class="nav-link">
+  English
+</a></li></ul></div></div><div class="nav-item"><a href="http://www.summergao.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/SummerGaoBlog/summergao-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Erlang开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/erlang/Centos%20%E7%94%A8Kerl%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%A1%E7%90%86Erlang/" class="sidebar-link">Centos 用Kerl安装及管理Erlang</a></li><li><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/" class="active sidebar-link">CentOS7 安装ejabberd</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#安装erlang-otp-22-0-可参考：centos-7-系统安装-erlang-otp-22-0-进行安装" class="sidebar-link">安装Erlang/OTP 22.0 ,可参考：CentOS 7 系统安装 Erlang/OTP 22.0 进行安装</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_1-下载源码" class="sidebar-link">1.下载源码</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_2-安装所需依赖" class="sidebar-link">2.安装所需依赖</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_3-安装" class="sidebar-link">3.安装</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_4-启动" class="sidebar-link">4.启动</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_5-查看服务状态" class="sidebar-link">5.查看服务状态</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_6-停止服务" class="sidebar-link">6.停止服务</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_7-注册一个用户" class="sidebar-link">7.注册一个用户</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_8-修改配置文件，设置admin可配置权限" class="sidebar-link">8.修改配置文件，设置admin可配置权限</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_9-登录管理页面查看" class="sidebar-link">9.登录管理页面查看</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_10-客户端登录测试" class="sidebar-link">10.客户端登录测试</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#_11-rest-api消息推送接口测试" class="sidebar-link">11.Rest API消息推送接口测试</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#https-oscimg-oschina-net-oscnet-up-3b696bcabc19e129a9a716330dae6a0d028-png" class="sidebar-link">!</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#问题总结：" class="sidebar-link">问题总结：</a></li><li class="sidebar-sub-header"><a href="/blog/erlang/CentOS7%20%E5%AE%89%E8%A3%85ejabberd/#参考：" class="sidebar-link">参考：</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="centos7-安装ejabberd"><a href="#centos7-安装ejabberd" class="header-anchor">#</a> CentOS7 安装ejabberd</h1> <h2 id="安装erlang-otp-22-0-可参考：centos-7-系统安装-erlang-otp-22-0-进行安装"><a href="#安装erlang-otp-22-0-可参考：centos-7-系统安装-erlang-otp-22-0-进行安装" class="header-anchor">#</a> 安装Erlang/OTP 22.0 ,可参考：<a href="https://my.oschina.net/zhenggao/blog/3104375" target="_blank" rel="noopener noreferrer">CentOS 7 系统安装 Erlang/OTP 22.0<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 进行安装</h2> <h2 id="_1-下载源码"><a href="#_1-下载源码" class="header-anchor">#</a> 1.下载源码</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">git</span> clone git://github.com/processone/ejabberd.git ejabberd
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="_2-安装所需依赖"><a href="#_2-安装所需依赖" class="header-anchor">#</a> 2.安装所需依赖</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>yum -y <span class="token function">install</span> <span class="token function">make</span> 
+yum -y <span class="token function">install</span> gcc 
+yum -y <span class="token function">install</span> gcc-c++ 
+yum -y <span class="token function">install</span> kernel-devel 
+yum -y <span class="token function">install</span> m4 
+yum -y <span class="token function">install</span> ncurses-devel 
+yum -y <span class="token function">install</span> openssl-devel 
+yum -y <span class="token function">install</span> unixODBC-devel 
+yum -y <span class="token function">install</span> libtool 
+yum -y <span class="token function">install</span> libtool-ltdl-devel 
+yum -y <span class="token function">install</span> automake 
+yum -y <span class="token function">install</span> autoconf 
+yum -y <span class="token function">install</span> wx 
+yum -y <span class="token function">install</span> fop 
+yum -y <span class="token function">install</span> expat-devel
+yum -y <span class="token function">install</span> libyaml-devel
+yum -y <span class="token function">install</span> dos2unix
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="_3-安装"><a href="#_3-安装" class="header-anchor">#</a> 3.安装</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> ejabberd
+./autogen.sh
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code>./configure --enable-user<span class="token operator">=</span>root --enable-mysql
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>[root@VM_0_2_centos ejabberd]# ./configure --enable-user=ejabberd --enable-mysql<br>
+checking whether make sets $(MAKE)... yes<br>
+checking for a BSD-compatible install... /usr/bin/install -c<br>
+checking for a sed that does not truncate output... /usr/bin/sed<br>
+checking for erl... /usr/local/bin/erl<br>
+checking for erlc... /usr/local/bin/erlc<br>
+checking for epmd... /usr/local/bin/epmd<br>
+checking for erl... /usr/local/bin/erl<br>
+checking for erlc... /usr/local/bin/erlc<br>
+checking Erlang/OTP version... ok<br>
+checking for Erlang/OTP root directory... /usr/local/lib/erlang<br>
+checking for escript... /usr/local/lib/erlang/bin/escript<br>
+checking for make... make<br>
+allow this system user to start ejabberd: ejabberd<br>
+configure: creating ./config.status<br>
+config.status: creating Makefile<br>
+config.status: creating vars.config<br>
+config.status: creating src/ejabberd.app.src</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">make</span> <span class="token function">install</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>安装所创建的文件和目录为：</p> <ul><li><p><code>/usr/local/etc/ejabberd/</code>: Configuration directory:</p> <ul><li><code>ejabberd.yml</code>: ejabberd configuration file</li> <li><code>ejabberdctl.cfg</code>: Configuration file of the administration script</li> <li><code>inetrc</code>: Network DNS configuration file for Erlang</li></ul></li> <li><p><code>/usr/local/lib/ejabberd-19.09.65/</code>:</p> <ul><li><code>ebin/</code>: Erlang binary files (*.beam)</li> <li><code>include/</code>: Erlang header files (*.hrl)</li> <li><code>priv/</code>: Additional files required at runtime</li> <li><code>bin/</code>: Executable programs</li> <li><code>lib/</code>: Binary system libraries (*.so)</li> <li><code>msgs/</code>: Translation files (*.msgs)</li></ul></li> <li><p><code>/usr/local/sbin/ejabberdctl</code>: Administration script (see section <a href="https://docs.ejabberd.im/admin/guide/managing/#ejabberdctl" target="_blank" rel="noopener noreferrer">ejabberdctl<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>)</p></li> <li><p><code>/usr/local/share/doc/ejabberd/</code>: Documentation of ejabberd</p></li> <li><p><code>/usr/local/var/lib/ejabberd/</code>: Spool directory:</p> <ul><li><code>.erlang.cookie</code>: Erlang cookie file (see section <a href="https://docs.ejabberd.im/admin/guide/security/#erlang-cookie" target="_blank" rel="noopener noreferrer">cookie<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>)</li> <li><code>acl.DCD, ...</code>: Mnesia database spool files (*.DCD, *.DCL, *.DAT)</li></ul></li> <li><p><code>/usr/local/var/log/ejabberd/</code>: Log directory (see section [logfiles]):</p> <ul><li><code>ejabberd.log</code>: ejabberd service log</li> <li><code>erlang.log</code>: Erlang/OTP system log</li></ul></li></ul> <h2 id="_4-启动"><a href="#_4-启动" class="header-anchor">#</a> 4.启动</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> /usr/local/sbin
+ejabberdctl start
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_5-查看服务状态"><a href="#_5-查看服务状态" class="header-anchor">#</a> 5.查看服务状态</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>ejabberdctl status
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="_6-停止服务"><a href="#_6-停止服务" class="header-anchor">#</a> 6.停止服务</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>ejabberdctl stop
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="_7-注册一个用户"><a href="#_7-注册一个用户" class="header-anchor">#</a> 7.注册一个用户</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>ejabberdctl register admin localhost <span class="token number">123456</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_8-修改配置文件，设置admin可配置权限"><a href="#_8-修改配置文件，设置admin可配置权限" class="header-anchor">#</a> 8.修改配置文件，设置admin可配置权限</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>acl:
+  local:
+    user_regexp: <span class="token string">&quot;&quot;</span>
+  loopback:
+    ip:
+      - <span class="token number">127.0</span>.0.0/8
+      - ::1/128
+  admin:
+    user:
+      - <span class="token string">&quot;admin&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;localhost&quot;</span>
+
+access:
+  configure:
+    admin: allow
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="_9-登录管理页面查看"><a href="#_9-登录管理页面查看" class="header-anchor">#</a> 9.登录管理页面查看</h2> <p><a href="http://www.nbiots.xyz:5280/admin/" target="_blank" rel="noopener noreferrer">http://localhost:5280/admin/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 用户名及密码：admin 123456</p> <p><img src="https://oscimg.oschina.net/oscnet/up-1ccc8beee6e454d91aabcf235ba18d4fbaf.png" alt=""></p> <p><img src="https://oscimg.oschina.net/oscnet/up-8bbbeb5b09cbfb106917d0b521e26bceca1.png" alt=""></p> <h2 id="_10-客户端登录测试"><a href="#_10-客户端登录测试" class="header-anchor">#</a> 10.客户端登录测试</h2> <p>没有配置ttls证书，把starttls_required 设置成 false</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>listen:
+  -
+    port: <span class="token number">5222</span>
+    ip: <span class="token string">&quot;::&quot;</span>
+    module: ejabberd_c2s
+    max_stanza_size: <span class="token number">262144</span>
+    shaper: c2s_shaper
+    access: c2s
+    starttls_required: <span class="token boolean">false</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>Spark客户端登录测试</p> <p><img src="https://oscimg.oschina.net/oscnet/up-9832c015efbdc773f2f721609d0ef96f02b.png" alt=""><img src="https://oscimg.oschina.net/oscnet/up-895060a48c6f8604addec141a320418b760.png" alt=""></p> <h2 id="_11-rest-api消息推送接口测试"><a href="#_11-rest-api消息推送接口测试" class="header-anchor">#</a> 11.Rest API消息推送接口测试</h2> <p>没有配置ttls证书，把tls 设置成 false</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>  -
+    port: <span class="token number">5443</span>
+    ip: <span class="token string">&quot;::&quot;</span>
+    module: ejabberd_http
+    tls: <span class="token boolean">false</span>
+    request_handlers:
+      /admin: ejabberd_web_admin
+      /api: mod_http_api
+      /bosh: mod_bosh
+      /captcha: ejabberd_captcha
+      /upload: mod_http_upload
+      /ws: ejabberd_http_ws
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>在acl:节点下添加如下配置</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>acl:
+  local:
+    user_regexp: <span class="token string">&quot;&quot;</span>
+  loopback:
+    ip:
+      - <span class="token number">127.0</span>.0.0/8
+      - ::1/128
+      - ::FFFF:49.234.110.112/16 <span class="token comment">#改成自己主机的ip地址</span>
+  admin:
+    user:
+      - <span class="token string">&quot;admin&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;www.xxx.xyz&quot;</span>
+    ip:
+      - ::FFFF:49.234.110.112/16 <span class="token comment">#改成自己主机的ip地址</span>
+access:
+  configure:
+    admin: allow
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>在api_permissions:节点下添加如下配置</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>  <span class="token string">&quot;API used from localhost allows all calls&quot;</span><span class="token builtin class-name">:</span>
+    who:
+      ip: <span class="token number">127.0</span>.0.1/8
+    what:
+      - <span class="token string">&quot;*&quot;</span>
+      - <span class="token string">&quot;!stop&quot;</span>
+      - <span class="token string">&quot;!start&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>send_message接口测试</p> <p>用postman给summergao用户推送消息</p> <p><img src="https://oscimg.oschina.net/oscnet/up-8f3c79d4d601ca11dabd6abfb9354d9af86.png" alt=""></p> <p>用Spark客户端接收消息</p> <h2 id=""><a href="#" class="header-anchor">#</a> <img src="https://oscimg.oschina.net/oscnet/up-3b696bcabc19e129a9a716330dae6a0d028.png" alt=""></h2> <h2 id="问题总结："><a href="#问题总结：" class="header-anchor">#</a> 问题总结：</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">{</span>
+ <span class="token string">&quot;status&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;error&quot;</span>,
+ <span class="token string">&quot;code&quot;</span><span class="token builtin class-name">:</span> <span class="token number">32</span>,
+ <span class="token string">&quot;message&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;AccessRules: Account does not have the right to perform the operation.&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>解决办法：</p> <p>将我的ip / range添加到admin AND loopback块中：</p> <p>追加：- ::FFFF:49.234.110.112/16</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>acl:
+  local:
+    user_regexp: <span class="token string">&quot;&quot;</span>
+  loopback:
+    ip:
+      - <span class="token number">127.0</span>.0.0/8
+      - ::1/128
+      - ::FFFF:127.0.0.1/128
+      - ::FFFF:49.234.110.112/16
+  admin:
+    user:
+      - <span class="token string">&quot;admin@localhost&quot;</span>
+    ip:
+      - ::FFFF:49.234.110.112/16
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="参考："><a href="#参考：" class="header-anchor">#</a> 参考：</h2> <p><a href="https://docs.ejabberd.im/developer/ejabberd-api/simple-configuration/" target="_blank" rel="noopener noreferrer">https://docs.ejabberd.im/developer/ejabberd-api/simple-configuration/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://docs.ejabberd.im/developer/ejabberd-api/admin-api/#send-message" target="_blank" rel="noopener noreferrer">https://docs.ejabberd.im/developer/ejabberd-api/admin-api/#send-message<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://stackoverflow.com/questions/58243535/ejabberd-accessrules-account-does-not-have-the-right-to-perform-the-operation?r=SearchResults" target="_blank" rel="noopener noreferrer">https://stackoverflow.com/questions/58243535/ejabberd-accessrules-account-does-not-have-the-right-to-perform-the-operation?r=SearchResults<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/4/2020, 1:53:35 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.6b660d26.js" defer></script><script src="/assets/js/2.a18e6c2d.js" defer></script><script src="/assets/js/14.eb89639f.js" defer></script>
+  </body>
+</html>
